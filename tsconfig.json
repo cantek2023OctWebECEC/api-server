@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2021"],
+		"module": "NodeNext",
+		"target": "esnext",
+		"allowUnusedLabels": true,
+		"strictPropertyInitialization": false,
+		"moduleResolution": "NodeNext",
+		"moduleDetection": "force",
+		"composite": true,
+		"strict": true,
+		"downlevelIteration": true,
+		"skipLibCheck": true,
+		"jsx": "preserve",
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowJs": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"outDir": "dist",
+		"noImplicitAny": false,
+		"noImplicitThis": false
+    }
+}

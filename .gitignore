@@ -1,0 +1,7 @@
+logs
+dist
+temp
+node_modules
+.env
+build
+coverage
