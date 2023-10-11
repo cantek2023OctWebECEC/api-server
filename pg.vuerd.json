@@ -1,0 +1,1091 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -64,
+    "scrollLeft": -488,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "postgres",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "Users",
+        "comment": "this table stores user info",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "0dc923fe-10ff-47a9-9260-38e596c4f7e5"
+          },
+          {
+            "name": "username",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "6031d54c-ec4d-4050-a049-af4ae57df794"
+          },
+          {
+            "name": "email",
+            "comment": "unique",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "fa235431-7d04-40e8-8c73-60308d152ff8"
+          },
+          {
+            "name": "password",
+            "comment": "hashed",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "3cbccd1b-b0ac-4a99-99f6-86b8e3c9e0b4"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 0,
+          "top": 303,
+          "zIndex": 342,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "f63e2c29-fe44-49c6-9c1e-989b26df533b"
+      },
+      {
+        "name": "Attractions",
+        "comment": "this table store list of attraction",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "83211771-6afc-4d71-a6a0-03147a2b1eb8"
+          },
+          {
+            "name": "name",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "96f2c4cd-b4db-404b-956e-ce27cc58af26"
+          },
+          {
+            "name": "description",
+            "comment": "",
+            "dataType": "LONGTEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.8671875,
+              "widthComment": 60,
+              "widthDataType": 72.0654296875,
+              "widthDefault": 60
+            },
+            "id": "da3ac1f1-7df8-4177-9f69-d9c5780a9061"
+          },
+          {
+            "name": "location",
+            "comment": "",
+            "dataType": "GEOMETRY",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 76.166015625,
+              "widthDefault": 60
+            },
+            "id": "88eea9aa-c980-4126-ba77-5bcbddb58c1f"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1631.966796875,
+          "top": 201,
+          "zIndex": 316,
+          "widthName": 63.41357421875,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "1f633664-d17b-458e-8967-82d39f775e20"
+      },
+      {
+        "name": "Trip",
+        "comment": "This table store individual trip",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "5cc3c9f0-c581-4421-adc2-67f247c9c7fd"
+          },
+          {
+            "name": "organizerid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 66.314453125,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "165d8783-79f1-4e85-92a5-ab90e80ce7a7"
+          },
+          {
+            "name": "name",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "f6aba977-fd82-4386-ae37-62841b38443f"
+          },
+          {
+            "name": "startDate",
+            "comment": "",
+            "dataType": "DATE",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1aacbb7a-3ad8-4670-b4d1-974ddf56ee18"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 942,
+          "top": 334,
+          "zIndex": 347,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b"
+      },
+      {
+        "name": "Todo",
+        "comment": "this table stores todo item",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "93fd3a61-f906-4b2b-94c9-4c4886abad6d"
+          },
+          {
+            "name": "tripid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "bbd3c5c0-1713-4f66-95fc-f3add6836031"
+          },
+          {
+            "name": "asignee",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "e8acf2a5-b24b-4d98-9aa9-7bd8557dd6d8"
+          },
+          {
+            "name": "title",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "a1ca9bc7-99ae-4ac8-ade6-0e32c518a580"
+          },
+          {
+            "name": "description",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.8671875,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "c48269f0-707a-4f5f-9bf2-abe273080017"
+          },
+          {
+            "name": "done",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "8d382509-61e9-4238-a578-b66216268c2b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 840,
+          "top": 676,
+          "zIndex": 381,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "1ee7f021-0b31-4070-97e7-7d6c61de6850"
+      },
+      {
+        "name": "Comment",
+        "comment": "this table stores the trip comment",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "2efdaf91-7124-429f-9155-9fa2ff8ce291"
+          },
+          {
+            "name": "content",
+            "comment": "",
+            "dataType": "LONGTEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 72.0654296875,
+              "widthDefault": 60
+            },
+            "id": "72f7fcc1-110c-42f5-9572-555754a54afa"
+          },
+          {
+            "name": "publishDate",
+            "comment": "",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70.65625,
+              "widthComment": 60,
+              "widthDataType": 76.876953125,
+              "widthDefault": 60
+            },
+            "id": "89a08c77-256a-478a-9287-6954d5e6edc5"
+          },
+          {
+            "name": "userid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "51407639-5469-4a0c-bdf6-5c93fdd187cc"
+          },
+          {
+            "name": "tripid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "ca53623e-4e97-42d2-b1de-4a0877e0547c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 305,
+          "top": 511,
+          "zIndex": 335,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "f2b23e98-43ec-42f8-8342-bce6a2c09611"
+      },
+      {
+        "name": "TripAttractions",
+        "comment": "pivot table",
+        "columns": [
+          {
+            "name": "tripid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "29e06c85-95f9-44ae-be9d-4234588ad6a3"
+          },
+          {
+            "name": "attractionid",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 65.5908203125,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "8a3822e2-1cdd-4e0a-8a29-4dfe7f0d067f"
+          },
+          {
+            "name": "date",
+            "comment": "",
+            "dataType": "DATE",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9c98dd7e-f9ed-4874-a761-dc67898e2dc4"
+          },
+          {
+            "name": "startTime",
+            "comment": "",
+            "dataType": "TIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2c838b0d-06ba-4822-9f7d-631ffee34f04"
+          },
+          {
+            "name": "endTime",
+            "comment": "",
+            "dataType": "TIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b756dfb3-6e7c-4a97-bdd1-1b55c464a204"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1382,
+          "top": 444,
+          "zIndex": 373,
+          "widthName": 85.32568359375,
+          "widthComment": 61.26171875
+        },
+        "visible": true,
+        "id": "63499b66-32d0-46f9-8aed-ad9a76d71e2b"
+      },
+      {
+        "name": "TripUser",
+        "comment": "this is used to relate who join the trip",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "80f89f47-7571-4417-b77a-10a2ac8b0d80"
+          },
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "a37cf2b8-c294-46a3-8308-3fd9f7036fd5"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 473,
+          "top": 163,
+          "zIndex": 331,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "899bdbed-afa7-4965-addd-703216ea42bf"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f63e2c29-fe44-49c6-9c1e-989b26df533b",
+          "columnIds": [
+            "0dc923fe-10ff-47a9-9260-38e596c4f7e5"
+          ],
+          "x": 351.60693359375,
+          "y": 378.49999999999994,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b",
+          "columnIds": [
+            "165d8783-79f1-4e85-92a5-ab90e80ce7a7"
+          ],
+          "x": 942,
+          "y": 459.83333333333326,
+          "direction": "left"
+        },
+        "constraintName": "fk_users_to_trip",
+        "visible": true,
+        "id": "2ec9aad7-24d4-46df-8260-022d89591e4b"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b",
+          "columnIds": [
+            "5cc3c9f0-c581-4421-adc2-67f247c9c7fd"
+          ],
+          "x": 1299.92138671875,
+          "y": 409.5,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "63499b66-32d0-46f9-8aed-ad9a76d71e2b",
+          "columnIds": [
+            "29e06c85-95f9-44ae-be9d-4234588ad6a3"
+          ],
+          "x": 1382,
+          "y": 529.75,
+          "direction": "left"
+        },
+        "constraintName": "fk_trip_to_tripattractions",
+        "visible": true,
+        "id": "679c5bd8-94b9-4fda-a247-250347681219"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "1f633664-d17b-458e-8967-82d39f775e20",
+          "columnIds": [
+            "83211771-6afc-4d71-a6a0-03147a2b1eb8"
+          ],
+          "x": 1631.966796875,
+          "y": 276.5,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "63499b66-32d0-46f9-8aed-ad9a76d71e2b",
+          "columnIds": [
+            "8a3822e2-1cdd-4e0a-8a29-4dfe7f0d067f"
+          ],
+          "x": 1560.598876953125,
+          "y": 444,
+          "direction": "top"
+        },
+        "constraintName": "fk_attractions_to_tripattractions",
+        "visible": true,
+        "id": "a91eabef-7f3c-4804-9e68-12276b2e8f62"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f63e2c29-fe44-49c6-9c1e-989b26df533b",
+          "columnIds": [
+            "0dc923fe-10ff-47a9-9260-38e596c4f7e5"
+          ],
+          "x": 351.60693359375,
+          "y": 328.16666666666663,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "899bdbed-afa7-4965-addd-703216ea42bf",
+          "columnIds": [
+            "80f89f47-7571-4417-b77a-10a2ac8b0d80"
+          ],
+          "x": 473,
+          "y": 218,
+          "direction": "left"
+        },
+        "constraintName": "fk_users_to_tripuser",
+        "visible": true,
+        "id": "1a2f9451-18b0-4d6d-a935-0674d90f7c5d"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b",
+          "columnIds": [
+            "5cc3c9f0-c581-4421-adc2-67f247c9c7fd"
+          ],
+          "x": 942,
+          "y": 359.16666666666663,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "899bdbed-afa7-4965-addd-703216ea42bf",
+          "columnIds": [
+            "a37cf2b8-c294-46a3-8308-3fd9f7036fd5"
+          ],
+          "x": 824.60693359375,
+          "y": 218,
+          "direction": "right"
+        },
+        "constraintName": "fk_trip_to_tripuser",
+        "visible": true,
+        "id": "1ba08ce9-16b2-4d48-803c-8d3be4e6a465"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f63e2c29-fe44-49c6-9c1e-989b26df533b",
+          "columnIds": [
+            "0dc923fe-10ff-47a9-9260-38e596c4f7e5"
+          ],
+          "x": 175.803466796875,
+          "y": 454,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "f2b23e98-43ec-42f8-8342-bce6a2c09611",
+          "columnIds": [
+            "51407639-5469-4a0c-bdf6-5c93fdd187cc"
+          ],
+          "x": 305,
+          "y": 596.75,
+          "direction": "left"
+        },
+        "constraintName": "fk_users_to_comment",
+        "visible": true,
+        "id": "e6561d79-478a-4c66-bf70-f6ed25e598f0"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b",
+          "columnIds": [
+            "5cc3c9f0-c581-4421-adc2-67f247c9c7fd"
+          ],
+          "x": 942,
+          "y": 409.49999999999994,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "f2b23e98-43ec-42f8-8342-bce6a2c09611",
+          "columnIds": [
+            "ca53623e-4e97-42d2-b1de-4a0877e0547c"
+          ],
+          "x": 679.533203125,
+          "y": 596.75,
+          "direction": "right"
+        },
+        "constraintName": "fk_trip_to_comment",
+        "visible": true,
+        "id": "676a8215-5071-4683-94cb-f660bed741b8"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Ring",
+        "start": {
+          "tableId": "f63e2c29-fe44-49c6-9c1e-989b26df533b",
+          "columnIds": [
+            "0dc923fe-10ff-47a9-9260-38e596c4f7e5"
+          ],
+          "x": 351.60693359375,
+          "y": 428.83333333333326,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "1ee7f021-0b31-4070-97e7-7d6c61de6850",
+          "columnIds": [
+            "bbd3c5c0-1713-4f66-95fc-f3add6836031"
+          ],
+          "x": 840,
+          "y": 772,
+          "direction": "left"
+        },
+        "constraintName": "fk_users_to_todo",
+        "visible": true,
+        "id": "1e779549-9f54-43fa-8192-eeccf9c387fd"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "0fd5c2f2-48d2-44d2-9072-f9f753bbbc8b",
+          "columnIds": [
+            "5cc3c9f0-c581-4421-adc2-67f247c9c7fd"
+          ],
+          "x": 1120.960693359375,
+          "y": 485,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "1ee7f021-0b31-4070-97e7-7d6c61de6850",
+          "columnIds": [
+            "e8acf2a5-b24b-4d98-9aa9-7bd8557dd6d8"
+          ],
+          "x": 1018.237060546875,
+          "y": 676,
+          "direction": "top"
+        },
+        "constraintName": "fk_trip_to_todo",
+        "visible": true,
+        "id": "2f1ace04-7242-4c34-a5f9-c1e8ad4fb2ac"
+      }
+    ]
+  }
+}
