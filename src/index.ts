@@ -10,6 +10,7 @@ import { UserController } from "./controllers/user.controller";
 import { authController } from "./controllers/auth.controller";
 import { client } from "./config/cacheconfig";
 import { mgDataSource, pgDataSource } from "./config/ormconfig";
+import { RouteController } from "./controllers/route.controller";
 const app = express();
 app.use(cors()); // cors
 app.use(express.json()); // json body parser
@@ -17,6 +18,7 @@ app.use(express.json()); // json body parser
 app.use("/api/auth", authController);
 app.use(BasicAuthMiddleware);
 app.use("/api/user", UserController);
+app.use("/api/route", RouteController);
 app.use(errorHandlerMiddleware);
 
 const server = createServer(app);

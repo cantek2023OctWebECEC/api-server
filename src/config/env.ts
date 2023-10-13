@@ -18,4 +18,5 @@ export const env = cleanEnv(process.env, {
 	RD_PORT: port(),
 	RD_USER: str({ default: "" }),
 	RD_PASS: str({ default: "" }),
+	ORS_API_KEY: str(),
 });

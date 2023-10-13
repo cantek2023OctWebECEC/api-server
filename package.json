@@ -47,6 +47,7 @@
     "lodash": "^4.17.21",
     "mongodb": "^5.9.0",
     "node-mailer": "^0.1.1",
+    "openrouteservice-js": "^0.3.2",
     "pg": "^8.11.3",
     "redis": "^4.6.10",
     "reflect-metadata": "^0.1.13",
