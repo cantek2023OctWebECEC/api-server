@@ -25,7 +25,7 @@ export class RouterService {
 		const result = await orsDirections.calculate({
 			coordinates: [from.coordinates, to.coordinates],
 			profile: profile,
-			format: "json",
+			format: "geojson",
 		});
 		return result;
 	}
