@@ -10,9 +10,9 @@ export const authController = Router();
 authController.post("/login", async (req, res, next) => {
 	try {
 		const {
-			body: { basic },
+			headers: { authorization },
 		} = await signinSchema.parse(req);
-		const result = await Container.get(AuthService).signin(basic);
+		const result = await Container.get(AuthService).signin(authorization);
 		return Success(res, result);
 	} catch (err) {
 		next(err);

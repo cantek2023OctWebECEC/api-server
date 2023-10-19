@@ -23,12 +23,12 @@ export class AuthService {
 	}
 
 	async signin(basicAuth: string) {
-		const { username, password } = this.bes.parse(this.bes.decrypt(basicAuth));
-		const userCheck = await this.us.show({ where: { email: username } });
+		const {username,password} = this.bes.parse(this.bes.decrypt(basicAuth));
+		const userCheck = await this.us.show({ where: { username: username } });
 		if (isNil(userCheck)) {
-			throw new NotFoundError("user already have account");
+			throw new NotFoundError("Username not exsist");
 		}
-		if (await this.ces.compare(password, userCheck.password)) {
+		if (password === userCheck.password) {
 			await client.set(basicAuth, JSON.stringify({ username, password }), { EX: 3600 * 24 });
 			return true;
 		}

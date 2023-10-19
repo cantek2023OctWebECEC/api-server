@@ -7,7 +7,7 @@ export const signupSchema = z.object({
 	}),
 });
 export const signinSchema = z.object({
-	body: z.object({
-		basic: z.string(),
+	headers: z.object({
+		authorization: z.string(),
 	}),
 });
