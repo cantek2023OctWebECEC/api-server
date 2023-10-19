@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { cleanEnv, port, str } from "envalid";
+import { cleanEnv, port, str, url } from "envalid";
 config();
 
 export const env = cleanEnv(process.env, {
@@ -19,4 +19,5 @@ export const env = cleanEnv(process.env, {
 	RD_USER: str({ default: "" }),
 	RD_PASS: str({ default: "" }),
 	ORS_API_KEY: str(),
+	FRONTEND_HOST: url(),
 });

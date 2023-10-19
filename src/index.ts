@@ -22,7 +22,11 @@ app.use("/api/route", RouteController);
 app.use(errorHandlerMiddleware);
 
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+	cors: {
+		origin: env.FRONTEND_HOST,
+	},
+});
 io.on("connection", (socket) => {
 	logger.info("a user connected");
 	socket.on("disconnect", () => {
