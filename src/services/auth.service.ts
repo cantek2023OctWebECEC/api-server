@@ -24,7 +24,7 @@ export class AuthService {
 
 	async signin(basicAuth: string) {
 		const {username,password} = this.bes.parse(this.bes.decrypt(basicAuth));
-		const userCheck = await this.us.show({ where: { username: username } });
+		const userCheck = await this.us.show({ where: { email: username } });
 		if (isNil(userCheck)) {
 			throw new NotFoundError("Username not exsist");
 		}
