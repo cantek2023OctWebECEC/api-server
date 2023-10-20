@@ -14,3 +14,12 @@ export const findRouteSchema = z.object({
 		profile: z.nativeEnum(ERouteProfile),
 	}),
 });
+export const createNavigationSchema = z.object({
+	body: z.object({
+		type: z.string(),
+		metadata: z.record(z.any()),
+		bbox: z.number().array().optional(),
+		features: z.record(z.any()).array(),
+		timestamp: z.string(),
+	}),
+});
