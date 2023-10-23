@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
+import { Trip } from ".";
 
 @Entity()
 class User {
@@ -13,6 +14,9 @@ class User {
 
 	@Column({ type: "varchar", length: 255 })
 	password: string;
+
+	@OneToMany(() => Trip, (trip) => trip.organizer)
+	trips: Trip[];
 
 	@Column({ type: "timestamptz", precision: 6, nullable: true })
 	lastLogin: Date;

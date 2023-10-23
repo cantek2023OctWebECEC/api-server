@@ -28,7 +28,7 @@ export class AuthService {
 		if (isNil(userCheck)) {
 			throw new NotFoundError("Username not exsist");
 		}
-		if (password === userCheck.password) {
+		if (await this.ces.compare(password, userCheck.password)) {
 			await client.set(basicAuth, JSON.stringify({ username, password }), { EX: 3600 * 24 });
 			return true;
 		}
