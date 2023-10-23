@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { env } from "./env";
 import * as pgEntities from "../database/postgres/entities";
+import * as mgEntities from "../database/mongo/entities";
 
 export const mgDataSource = new DataSource({
 	type: "mongodb",
@@ -9,6 +10,8 @@ export const mgDataSource = new DataSource({
 	username: env.MG_USER,
 	password: env.MG_PASS,
 	logging: true,
+	synchronize: true,
+	entities: [...Object.values(mgEntities)],
 });
 
 export const pgDataSource = new DataSource({
