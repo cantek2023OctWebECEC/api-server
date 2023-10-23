@@ -1,5 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
-import { Trip } from ".";
+import {
+	Entity,
+	PrimaryGeneratedColumn,
+	Column,
+	CreateDateColumn,
+	UpdateDateColumn,
+	OneToMany,
+	ManyToOne,
+	ManyToMany,
+} from "typeorm";
+import Todo from "./Todo";
+import Trip from "./Trip";
+import Comment from "./Comment";
 
 @Entity()
 class User {
@@ -26,5 +37,20 @@ class User {
 
 	@UpdateDateColumn()
 	updatedAt: Date;
+
+	@OneToMany(() => Todo, (todo) => todo.asignee)
+	tasks: Todo[];
+
+	@ManyToOne(() => Trip, (trip) => trip.organizer)
+	hostedTrip: Trip[];
+
+	@ManyToMany(() => Trip, (trip) => trip.participants)
+	jointTrip: Trip[];
+
+	@OneToMany(() => Comment, (comment) => comment.user)
+	comments: Comment[];
+
+	@OneToMany(() => Todo, (todo) => todo.asignee)
+	todos: Todo[];
 }
 export default User;
