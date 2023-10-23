@@ -1,4 +1,5 @@
-import { CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { CreateDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Attraction from "./Attraction";
 
 @Entity()
 export class Trip {
@@ -10,5 +11,8 @@ export class Trip {
 
 	@UpdateDateColumn()
 	updatedAt: Date | null;
+
+	@ManyToMany((type) => Attraction, (attraction) => attraction.trips)
+	attractions: Attraction[];
 }
 export default Trip;

@@ -7,6 +7,7 @@
     "build": "tsc",
     "start": "npm run build && node dist/src/index.js",
     "typeorm": "./node_modules/.bin/typeorm",
+    "seed": "ts-node ./scripts/seedAttractions.ts",
     "dev": "nodemon - exec 'ts-node' src/index.ts",
     "test": "ts-mocha tests/*.ts"
   },
@@ -28,6 +29,7 @@
     "@types/mocha": "^10.0.2",
     "@types/node": "^20.8.2",
     "@types/sinon": "^10.0.19",
+    "@types/bcrypt": "^5.0.0",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
@@ -37,7 +39,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@types/bcrypt": "^5.0.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dayjs": "^1.11.10",

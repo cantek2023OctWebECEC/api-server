@@ -7,7 +7,6 @@
 		"strictPropertyInitialization": false,
 		"moduleResolution": "NodeNext",
 		"moduleDetection": "force",
-		"composite": true,
 		"strict": true,
 		"downlevelIteration": true,
 		"skipLibCheck": true,
@@ -19,6 +18,8 @@
 		"emitDecoratorMetadata": true,
 		"outDir": "dist",
 		"noImplicitAny": false,
-		"noImplicitThis": false
-    }
+		"noImplicitThis": false,
+		"resolveJsonModule": true
+    },
+	"include": ["scripts", "src","tests"]
 }
