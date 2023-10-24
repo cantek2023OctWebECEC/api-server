@@ -14,9 +14,18 @@ import { RouteController } from "./controllers/route.controller";
 import { TripController } from "./controllers/trip.controller";
 import { TodoController } from "./controllers/todo.controller";
 import { CommentController } from "./controllers/comment.controller";
+import { queryParser } from "express-query-parser";
 const app = express();
 app.use(cors()); // cors
 app.use(express.json()); // json body parser
+app.use(
+	queryParser({
+		parseNull: true,
+		parseUndefined: true,
+		parseBoolean: true,
+		parseNumber: true,
+	})
+);
 //add middleware and router
 app.use("/api/auth", authController);
 app.use(BasicAuthMiddleware);

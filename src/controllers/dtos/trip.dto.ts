@@ -33,3 +33,24 @@ export const listUserTripSchema = z.object({
 		id: z.string(),
 	}),
 });
+export const associateUpdateAttractionSchema = z.object({
+	params: z.object({
+		tripid: z.string(),
+		attractionid: z.string(),
+	}),
+	body: z.object({
+		order: z.number(),
+	}),
+});
+export const dissociateAttractionSchema = z.object({
+	params: z.object({
+		tripid: z.string(),
+		attractionid: z.string(),
+	}),
+});
+export const assodissoParticipantSchema = z.object({
+	params: z.object({
+		tripid: z.string(),
+		participantid: z.string(),
+	}),
+});

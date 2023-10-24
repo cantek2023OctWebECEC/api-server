@@ -8,6 +8,7 @@ import {
 	ManyToOne,
 	JoinColumn,
 	Column,
+	JoinTable,
 } from "typeorm";
 import Attraction from "./Attraction";
 import Todo from "./Todo";
@@ -19,7 +20,7 @@ export class Trip {
 	@PrimaryGeneratedColumn("uuid")
 	id: string;
 
-	@ManyToOne(() => User, (user) => user.trips)
+	@ManyToOne(() => User, (user) => user.trips, {})
 	@JoinColumn()
 	organizer: User;
 
@@ -35,16 +36,28 @@ export class Trip {
 	@UpdateDateColumn()
 	updatedAt: Date | null;
 
-	@ManyToMany((type) => Attraction, (attraction) => attraction.trips)
+	@ManyToMany((type) => Attraction, (attraction) => attraction.trips, { onDelete: "CASCADE" })
+	@JoinTable({
+		name: "TripAttractions_pivot_table",
+		joinColumn: {
+			name: "tripid",
+			referencedColumnName: "id",
+		},
+		inverseJoinColumn: {
+			name: "attractionid",
+			referencedColumnName: "id",
+		},
+	})
 	attractions: Attraction[];
 
-	@OneToMany((type) => Todo, (todo) => todo.trip)
+	@OneToMany((type) => Todo, (todo) => todo.trip, {})
 	todos: Todo[];
 
-	@OneToMany((type) => Comment, (comment) => comment.user)
+	@OneToMany((type) => Comment, (comment) => comment.user, {})
 	comments: Comment[];
 
-	@ManyToMany((type) => User, (user) => user.jointTrip)
+	@ManyToMany((type) => User, (user) => user.jointTrip, { onDelete: "CASCADE" })
+	@JoinTable()
 	participants: User[];
 }
 export default Trip;

@@ -7,7 +7,9 @@ export async function seed() {
 	}
 	const repo = pgDataSource.getRepository(Attraction);
 	const ids = (await repo.find({ select: { id: true } })).map((e) => e.id);
-	await repo.delete(ids);
+	if (ids.length > 0) {
+		await repo.delete(ids);
+	}
 	const attractionArr = jsonArray.map((e) => {
 		return Object.assign(new Attraction(), {
 			name: e.NAME,

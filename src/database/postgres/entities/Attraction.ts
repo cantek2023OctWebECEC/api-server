@@ -35,16 +35,5 @@ export default class Attraction {
 	website: string | null;
 
 	@ManyToMany((type) => Trip, (trip) => trip.attractions)
-	@JoinTable({
-		name: "TripAttractions_pivot_table",
-		joinColumn: {
-			name: "attractionid",
-			referencedColumnName: "id",
-		},
-		inverseJoinColumn: {
-			name: "tripid",
-			referencedColumnName: "id",
-		},
-	})
 	trips: Trip[];
 }
