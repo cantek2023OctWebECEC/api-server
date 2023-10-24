@@ -12,14 +12,18 @@ import { client } from "./config/cacheconfig";
 import { mgDataSource, pgDataSource } from "./config/ormconfig";
 import { RouteController } from "./controllers/route.controller";
 import { TripController } from "./controllers/trip.controller";
+import { TodoController } from "./controllers/todo.controller";
+import { CommentController } from "./controllers/comment.controller";
 const app = express();
 app.use(cors()); // cors
 app.use(express.json()); // json body parser
 //add middleware and router
 app.use("/api/auth", authController);
-app.use(BasicAuthMiddleware);
+//app.use(BasicAuthMiddleware);
 app.use("/api/user", UserController);
 app.use("/api/route", RouteController);
+app.use("/api/comment", CommentController);
+app.use("/api/todo", TodoController);
 app.use("/api/trip", TripController);
 app.use(errorHandlerMiddleware);
 

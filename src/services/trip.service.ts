@@ -3,6 +3,7 @@ import { pgDataSource } from "../config/ormconfig";
 import { Trip, User } from "../database/postgres/entities";
 import { logAsync } from "../utils/decorators/logDecorator";
 import { FindManyOptions, FindOneOptions } from "typeorm";
+import { isNil, omitBy } from "lodash";
 
 @Service()
 export class TripService {
@@ -29,7 +30,7 @@ export class TripService {
 	}
 
 	@logAsync()
-	async update(id: string, trip: { organizerId?: string ; name?: string ; startDate?: string }) {
+	async update(id: string, trip: { organizerId?: string; name?: string; startDate?: string; }) {
 		const oldTrip = await this.show({ where: { id } }) || {};
         let user;
         if (trip.organizerId) {
@@ -38,7 +39,12 @@ export class TripService {
         if (trip.startDate) {
             trip = Object.assign(trip, { startDate: new Date(trip.startDate)});
         }
-        const updateTrip = user ? Object.assign(new Trip(), oldTrip, trip, { organizer: user }) : Object.assign(new Trip(), oldTrip, trip);
+        const updateTrip = omitBy({
+            organiser: user,
+            startDate: trip.startDate,
+            name: trip.name,
+            updatedAt: new Date().toISOString(),
+        }, isNil);
         return await this.tripRepo.update(id, updateTrip)
 	}
 

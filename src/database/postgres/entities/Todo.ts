@@ -1,9 +1,7 @@
 import {
 	CreateDateColumn,
 	Entity,
-	ManyToMany,
 	ManyToOne,
-	OneToMany,
 	PrimaryGeneratedColumn,
 	UpdateDateColumn,
 	JoinColumn,
@@ -23,7 +21,7 @@ export class Todo {
 
 	@ManyToOne(() => User, (user) => user.todos)
 	@JoinColumn()
-	asignee: User;
+	assignee: User;
 
 	@Column({ type: "varchar", length: 255, nullable: false })
 	title: string;

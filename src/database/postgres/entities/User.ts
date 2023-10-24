@@ -29,6 +29,9 @@ class User {
 	@OneToMany(() => Trip, (trip) => trip.organizer)
 	trips: Trip[];
 
+	@OneToMany(() => Todo, (todo) => todo.assignee)
+	todos: Todo[];
+
 	@Column({ type: "timestamptz", precision: 6, nullable: true })
 	lastLogin: Date;
 
@@ -37,10 +40,7 @@ class User {
 
 	@UpdateDateColumn()
 	updatedAt: Date;
-
-	@OneToMany(() => Todo, (todo) => todo.asignee)
-	tasks: Todo[];
-
+	
 	@ManyToOne(() => Trip, (trip) => trip.organizer)
 	hostedTrip: Trip[];
 
@@ -49,8 +49,5 @@ class User {
 
 	@OneToMany(() => Comment, (comment) => comment.user)
 	comments: Comment[];
-
-	@OneToMany(() => Todo, (todo) => todo.asignee)
-	todos: Todo[];
 }
 export default User;
