@@ -11,14 +11,29 @@ import { authController } from "./controllers/auth.controller";
 import { client } from "./config/cacheconfig";
 import { mgDataSource, pgDataSource } from "./config/ormconfig";
 import { RouteController } from "./controllers/route.controller";
+import { TripController } from "./controllers/trip.controller";
+import { TodoController } from "./controllers/todo.controller";
+import { CommentController } from "./controllers/comment.controller";
+import { queryParser } from "express-query-parser";
 const app = express();
 app.use(cors()); // cors
 app.use(express.json()); // json body parser
+app.use(
+	queryParser({
+		parseNull: true,
+		parseUndefined: true,
+		parseBoolean: true,
+		parseNumber: true,
+	})
+);
 //add middleware and router
 app.use("/api/auth", authController);
 app.use(BasicAuthMiddleware);
 app.use("/api/user", UserController);
 app.use("/api/route", RouteController);
+app.use("/api/comment", CommentController);
+app.use("/api/todo", TodoController);
+app.use("/api/trip", TripController);
 app.use(errorHandlerMiddleware);
 
 const server = createServer(app);
@@ -40,7 +55,7 @@ server.listen(env.APP_PORT, async () => {
 	// redis setup etc.
 	await client.connect();
 
-	logger.info(`server is no running on ${env.APP_PORT}`);
+	logger.info(`server is now running on ${env.APP_PORT}`);
 });
 
 process.on("SIGTERM", shutDown);

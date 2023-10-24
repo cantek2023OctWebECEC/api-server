@@ -42,7 +42,7 @@ export class RouterService {
 		const coordinates = toString(_get(navgation, 'metadata.query.coordinates', []));
 		const profile = _get(navgation, 'metadata.query.profile', '');
 		const newNav = Object.assign({}, new Navigation(), navgation, { coordinates, profile });
-		return await this.navRepo.insert(newNav);
+		return await this.navRepo.save(newNav);
 	}
 
 	@logAsync()

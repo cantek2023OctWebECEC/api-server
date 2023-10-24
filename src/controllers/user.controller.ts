@@ -29,7 +29,11 @@ UserController.get("/:id", async (req, res, next) => {
 		const {
 			params: { id },
 		} = await showUserSchema.parse(req);
-		const result = await Container.get(UserService).show({ where: { id } });
+		const result = await Container.get(UserService).show({
+			where: { id },
+			relations: { trips: true },
+			select: ['id', 'email', 'trips', 'username']
+		});
 		return Success(res, result);
 	} catch (err) {
 		next(err);
