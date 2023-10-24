@@ -4,7 +4,7 @@ import { pgDataSource } from "../config/ormconfig";
 import { User } from "../database/postgres/entities";
 import { logAsync } from "../utils/decorators/logDecorator";
 import { FindManyOptions, FindOneOptions } from "typeorm";
-import { isNil } from "lodash";
+import { isNil, omitBy } from "lodash";
 
 @Service()
 export class UserService {
@@ -37,7 +37,11 @@ export class UserService {
 		if (user.password) {
 			pwObj.password = await this.bes.encrypt(user.password);
 		}
-		const updatedUser = Object.assign(oldUser, user, pwObj);
+		const updatedUser = omitBy({
+            ...user,
+			...pwObj,
+        }, isNil);
+		return await this.userRepo.update(id, updatedUser)
 	}
 
 	@logAsync()

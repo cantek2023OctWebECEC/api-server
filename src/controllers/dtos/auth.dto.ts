@@ -11,3 +11,8 @@ export const signinSchema = z.object({
 		authorization: z.string(),
 	}),
 });
+export const resetSchema = z.object({
+	body: z.object({
+		email: z.string().email(),
+	}),
+});

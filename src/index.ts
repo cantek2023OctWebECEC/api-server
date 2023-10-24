@@ -19,7 +19,7 @@ app.use(cors()); // cors
 app.use(express.json()); // json body parser
 //add middleware and router
 app.use("/api/auth", authController);
-//app.use(BasicAuthMiddleware);
+app.use(BasicAuthMiddleware);
 app.use("/api/user", UserController);
 app.use("/api/route", RouteController);
 app.use("/api/comment", CommentController);
