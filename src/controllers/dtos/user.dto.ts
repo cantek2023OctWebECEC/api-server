@@ -23,8 +23,21 @@ export const deleteUserSchema = z.object({
 		id: z.string(),
 	}),
 });
+
 export const showUserSchema = z.object({
 	params: z.object({
 		id: z.string(),
+	}),
+});
+
+export const getUserInfoSchema = z.object({
+	headers: z.object({
+		authorization: z.string(),
+	}),
+});
+
+export const getUserByEmailSchema = z.object({
+	body: z.object({
+		email: z.string(),
 	}),
 });

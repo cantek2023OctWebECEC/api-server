@@ -14,7 +14,10 @@ export class TripService {
 
 	@logAsync()
 	async create(trip: { organizerId: string; name: string; startDate: string }) {
-		const user = await this.userRepo.findOneBy({ id: trip.organizerId });
+        const user = await this.userRepo.findOneBy({ id: trip.organizerId });
+		if (isNil(user)) {
+			throw new NotFoundError("User not exsist");
+		}
 		const newTrip = Object.assign({}, new Trip(), trip, { organizer: user, startDate: new Date(trip.startDate) });
 		return await this.tripRepo.save(newTrip);
 	}
@@ -37,9 +40,15 @@ export class TripService {
 		let user;
 		if (trip.organizerId) {
 			user = this.userRepo.findOneBy({ id: trip.organizerId });
+			if (isNil(user)) {
+				throw new NotFoundError("User not exsist");
+			}
 		}
 		if (trip.startDate) {
 			trip = Object.assign(trip, { startDate: new Date(trip.startDate) });
+			if (isNil(oldTrip)) {
+				throw new NotFoundError("Trip not exsist");
+			}
 		}
 		const updateTrip = omitBy(
 			{
