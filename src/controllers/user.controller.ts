@@ -34,8 +34,8 @@ UserController.get("/:id", async (req, res, next) => {
 		} = await showUserSchema.parse(req);
 		const result = await Container.get(UserService).show({
 			where: { id },
-			relations: { trips: true },
-			select: ['id', 'email', 'trips', 'username']
+			relations: { hostedTrip: true, todos: true, jointTrip: true, comments: true },
+			select: ['id', 'email', 'todos', 'comments', 'hostedTrip', 'jointTrip', 'username', 'lastLogin']
 		});
 		return Success(res, result);
 	} catch (err) {
@@ -50,8 +50,8 @@ UserController.post("/get-user-email", async (req, res, next) => {
 		} = await getUserByEmailSchema.parse(req);
 		const result = await Container.get(UserService).show({
 			where: { email },
-			relations: { trips: true },
-			select: ['id', 'email', 'trips', 'username', 'lastLogin']
+			relations: { hostedTrip: true, todos: true, jointTrip: true, comments: true },
+			select: ['id', 'email', 'todos', 'comments', 'hostedTrip', 'jointTrip', 'username', 'lastLogin']
 		});
 		return Success(res, result);
 	} catch (err) {

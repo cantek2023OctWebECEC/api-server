@@ -26,9 +26,6 @@ class User {
 	@Column({ type: "varchar", length: 255 })
 	password: string;
 
-	@OneToMany(() => Trip, (trip) => trip.organizer)
-	trips: Trip[];
-
 	@OneToMany(() => Todo, (todo) => todo.assignee)
 	todos: Todo[];
 
@@ -41,7 +38,7 @@ class User {
 	@UpdateDateColumn()
 	updatedAt: Date;
 	
-	@ManyToOne(() => Trip, (trip) => trip.organizer)
+	@OneToMany(() => Trip, (trip) => trip.organizer)
 	hostedTrip: Trip[];
 
 	@ManyToMany(() => Trip, (trip) => trip.participants)

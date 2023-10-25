@@ -28,9 +28,6 @@ export class UserService {
 	@logAsync()
 	async show(opt: FindOneOptions<User>) {
 		const user = await this.userRepo.findOne(opt);
-		if (isNil(user)) {
-			throw new NotFoundError("User not exsist");
-		}
 		return user;
 	}
 
@@ -61,8 +58,8 @@ export class UserService {
 		const { username } = this.bes.parse(this.bes.decrypt(basicAuth));
 		const userInfo = await this.show({
 			where: { email: username },
-			relations: { trips: true },
-			select: ['id', 'email', 'trips', 'username', 'lastLogin']
+			relations: { hostedTrip: true, todos: true, jointTrip: true, comments: true },
+			select: ['id', 'email', 'todos', 'comments', 'hostedTrip', 'jointTrip', 'username', 'lastLogin']
 		});
 		if (isNil(userInfo)) {
 			throw new NotFoundError("User not exsist");

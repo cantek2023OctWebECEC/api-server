@@ -20,7 +20,7 @@ export class Trip {
 	@PrimaryGeneratedColumn("uuid")
 	id: string;
 
-	@ManyToOne(() => User, (user) => user.trips, {})
+	@ManyToOne(() => User, (user) => user.hostedTrip, {})
 	@JoinColumn()
 	organizer: User;
 
