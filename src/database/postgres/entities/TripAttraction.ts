@@ -1,7 +1,7 @@
 import { Column, Entity, UpdateDateColumn, CreateDateColumn } from "typeorm";
 
 @Entity("TripAttractions_pivot_table")
-export default class UserBusinessLine {
+export default class TripAttraction {
 	@CreateDateColumn({ type: "timestamp" })
 	createdAt: Date;
 

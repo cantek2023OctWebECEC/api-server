@@ -129,4 +129,8 @@ export class TripService {
 		trip.participants = participantList;
 		return await this.tripRepo.save(trip);
 	}
+	@logAsync()
+	async listTripAttr(opt: FindManyOptions<TripAttraction>) {
+		return await this.tripAttrRepo.find(opt);
+	}
 }

@@ -43,6 +43,14 @@ TripController.get("/:id", async (req, res, next) => {
 			where: { id },
 			relations: { organizer: true, todos: true, attractions: true, participants: true, comments: true },
 		});
+		//add ordering info
+		const tripAttr = await Container.get(TripService).listTripAttr({
+			where: { tripid: id },
+		});
+		result?.attractions.forEach((e) => {
+			//@ts-ignore
+			e.order = tripAttr.find((f) => f.attractionid === e.id)!.order;
+		});
 		return Success(res, result);
 	} catch (err) {
 		next(err);
