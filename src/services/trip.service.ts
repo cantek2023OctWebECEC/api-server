@@ -14,7 +14,7 @@ export class TripService {
 
 	@logAsync()
 	async create(trip: { organizerId: string; name: string; startDate: string }) {
-        const user = await this.userRepo.findOneBy({ id: trip.organizerId });
+		const user = await this.userRepo.findOneBy({ id: trip.organizerId });
 		if (isNil(user)) {
 			throw new NotFoundError("User not exsist");
 		}
@@ -70,13 +70,14 @@ export class TripService {
 	@logAsync()
 	async associateAttraction(tripid: string, attractionid: string, { order }: { order: number }) {
 		const tripAttr = await this.tripAttrRepo.find({ where: { tripid } });
-		tripAttr.forEach((e) => {
+		const updatedTripAttr = tripAttr.map((e) => {
 			if (e.order >= order) {
 				e.order = e.order + 1;
 			}
+			return e;
 		});
-		tripAttr.push(Object.assign(new TripAttraction(), { tripid, attractionid, order }));
-		return await this.tripAttrRepo.save(tripAttr);
+		updatedTripAttr.push(Object.assign(new TripAttraction(), { tripid, attractionid, order }));
+		return await this.tripAttrRepo.save(updatedTripAttr);
 	}
 
 	@logAsync()
@@ -84,7 +85,8 @@ export class TripService {
 		const tripAttr = await this.tripAttrRepo.find({ where: { tripid } });
 		const updatedTripAttr = sortBy(tripAttr, "order")
 			.filter((e) => e.attractionid !== attractionid)
-			.map((e, i) => (e.order === i + 1 ? { ...e } : { ...e, order: e.order - 1 }));
+			.map((e, i) => (e.order === i + 1 ? { ...e } : { ...e, order: i + 1 }));
+		this.tripAttrRepo.delete({ tripid, attractionid });
 		return await this.tripAttrRepo.save(updatedTripAttr);
 	}
 
@@ -97,8 +99,11 @@ export class TripService {
 		}
 		const updatedTripAttr = sortBy(tripAttr, "order")
 			.filter((e) => e.attractionid !== attractionid)
-			.map((e, i) => (e.order === i + 1 ? { ...e } : { ...e, order: e.order - 1 }));
+			.map((e, i) => (e.order === i + 1 ? { ...e } : { ...e, order: i + 1 })) // dissociate
+			.map((e, i) => (e.order >= order ? { ...e, order: e.order + 1 } : { ...e })); // reassociate
+
 		updatedTripAttr.push({ ...saved, order });
+		return await this.tripAttrRepo.save(updatedTripAttr);
 	}
 	@logAsync()
 	async associateParticipant(tripid: string, participantid: string) {
