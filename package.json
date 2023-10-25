@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node dist/src/index.js",
+    "start:prod": "node dist/src/index.js",
     "typeorm": "./node_modules/.bin/typeorm",
     "seed": "ts-node ./scripts/seedAttractions.ts",
     "dev": "nodemon - exec 'ts-node' src/index.ts",
