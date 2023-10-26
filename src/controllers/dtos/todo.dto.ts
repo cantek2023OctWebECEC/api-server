@@ -37,3 +37,11 @@ export const listUserTodoSchema = z.object({
 		id: z.string(),
 	}),
 });
+export const listTodoSchema = z.object({
+	query: z.object({
+		tripId: z.string(),
+		userId: z.string(),
+	})
+	.partial()
+})
+

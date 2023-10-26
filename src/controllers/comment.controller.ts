@@ -1,8 +1,10 @@
 import { Router } from "express";
 import Container from "typedi";
 import { CommentService } from "../services/comment.service";
-import { createCommentSchema, deleteCommentSchema, showCommentSchema, updateCommentSchema } from "./dtos/comment.dto";
+import { createCommentSchema, deleteCommentSchema, showCommentSchema, updateCommentSchema, listCommentSchema } from "./dtos/comment.dto";
 import { Success } from "../utils/responses/Success";
+import { set } from "lodash";
+import { ValidationError } from "../utils/errors/ValidationError";
 
 export const CommentController = Router();
 
@@ -10,6 +12,26 @@ CommentController.post("/", async (req, res, next) => {
 	try {
 		const { body } = await createCommentSchema.parse(req);
 		const result = await Container.get(CommentService).create(body);
+		return Success(res, result);
+	} catch (err) {
+		next(err);
+	}
+});
+
+CommentController.post("/list", async (req, res, next) => {
+	try {
+		const {
+			query: { tripId, userId },
+		} = await listCommentSchema.parse(req);
+		const whereQuery = {};
+		if(tripId) set(whereQuery, 'trip.id', tripId);
+		if(userId) set(whereQuery, 'user.id', userId);
+		if(!tripId && !userId) {
+			throw new ValidationError("Query must have either tripId or userId");
+		}
+		const result = await Container.get(CommentService).list({
+			where: whereQuery, 
+		});
 		return Success(res, result);
 	} catch (err) {
 		next(err);

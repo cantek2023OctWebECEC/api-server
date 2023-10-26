@@ -19,7 +19,7 @@ export class CommentService {
     }) {
         const trip = await this.tripRepo.findOneBy({ id: comment.tripId });
         const user = await this.userRepo.findOneBy({ id: comment.userId });
-		const newComment = Object.assign({}, new Comment(), comment, { assignee: user, trip });
+		const newComment = Object.assign({}, new Comment(), comment, { user, trip });
 		return await this.commentRepo.save(newComment);
 	}
 
