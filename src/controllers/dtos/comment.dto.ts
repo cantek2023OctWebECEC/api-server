@@ -31,3 +31,10 @@ export const listUserCommentSchema = z.object({
 		id: z.string(),
 	}),
 });
+export const listCommentSchema = z.object({
+	query: z.object({
+		tripId: z.string(),
+		userId: z.string(),
+	})
+	.partial()
+})
