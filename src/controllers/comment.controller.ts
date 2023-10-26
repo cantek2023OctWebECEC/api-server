@@ -1,7 +1,13 @@
 import { Router } from "express";
 import Container from "typedi";
 import { CommentService } from "../services/comment.service";
-import { createCommentSchema, deleteCommentSchema, showCommentSchema, updateCommentSchema, listCommentSchema } from "./dtos/comment.dto";
+import {
+	createCommentSchema,
+	deleteCommentSchema,
+	showCommentSchema,
+	updateCommentSchema,
+	listCommentSchema,
+} from "./dtos/comment.dto";
 import { Success } from "../utils/responses/Success";
 import { set } from "lodash";
 import { ValidationError } from "../utils/errors/ValidationError";
@@ -24,13 +30,14 @@ CommentController.post("/list", async (req, res, next) => {
 			query: { tripId, userId },
 		} = await listCommentSchema.parse(req);
 		const whereQuery = {};
-		if(tripId) set(whereQuery, 'trip.id', tripId);
-		if(userId) set(whereQuery, 'user.id', userId);
-		if(!tripId && !userId) {
+		if (tripId) set(whereQuery, "trip.id", tripId);
+		if (userId) set(whereQuery, "user.id", userId);
+		if (!tripId && !userId) {
 			throw new ValidationError("Query must have either tripId or userId");
 		}
 		const result = await Container.get(CommentService).list({
-			where: whereQuery, 
+			where: whereQuery,
+			relations: { user: true },
 		});
 		return Success(res, result);
 	} catch (err) {
@@ -53,19 +60,19 @@ CommentController.get("/:id", async (req, res, next) => {
 			params: { id },
 		} = await showCommentSchema.parse(req);
 		const result = await Container.get(CommentService).show({
-            where: { id },
-            relations: { user: true, trip: true },
-            select: {
-                user: {
-                    id: true,
-                    username: true,
-                },
-                trip: {
-                    id: true,
-                    name: true,
-                }
-            }
-        });
+			where: { id },
+			relations: { user: true, trip: true },
+			select: {
+				user: {
+					id: true,
+					username: true,
+				},
+				trip: {
+					id: true,
+					name: true,
+				},
+			},
+		});
 		return Success(res, result);
 	} catch (err) {
 		next(err);

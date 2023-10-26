@@ -24,13 +24,14 @@ TodoController.post("/list", async (req, res, next) => {
 			query: { tripId, userId },
 		} = await listTodoSchema.parse(req);
 		const whereQuery = {};
-		if(tripId) set(whereQuery, 'trip.id', tripId);
-		if(userId) set(whereQuery, 'assignee.id', userId);
-		if(!tripId && !userId) {
+		if (tripId) set(whereQuery, "trip.id", tripId);
+		if (userId) set(whereQuery, "assignee.id", userId);
+		if (!tripId && !userId) {
 			throw new ValidationError("Query must have either tripId or userId");
 		}
 		const result = await Container.get(TodoService).list({
-			where: whereQuery, 
+			where: whereQuery,
+			relations: { assignee: true },
 		});
 		return Success(res, result);
 	} catch (err) {
@@ -53,19 +54,19 @@ TodoController.get("/:id", async (req, res, next) => {
 			params: { id },
 		} = await showTodoSchema.parse(req);
 		const result = await Container.get(TodoService).show({
-            where: { id },
-            relations: { assignee: true, trip: true },
-            select: {
-                assignee: {
-                    id: true,
-                    username: true,
-                },
-                trip: {
-                    id: true,
-                    name: true,
-                }
-            }
-        });
+			where: { id },
+			relations: { assignee: true, trip: true },
+			select: {
+				assignee: {
+					id: true,
+					username: true,
+				},
+				trip: {
+					id: true,
+					name: true,
+				},
+			},
+		});
 		return Success(res, result);
 	} catch (err) {
 		next(err);
