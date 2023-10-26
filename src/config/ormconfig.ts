@@ -21,7 +21,7 @@ export const pgDataSource = new DataSource({
 	username: env.PG_USER,
 	password: env.PG_PASS,
 	database: env.PG_DB,
-	synchronize: true,
+	synchronize: false,
 	logging: true,
 	entities: [...Object.values(pgEntities)],
 });

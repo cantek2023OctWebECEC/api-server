@@ -15,6 +15,7 @@ import { TripController } from "./controllers/trip.controller";
 import { TodoController } from "./controllers/todo.controller";
 import { CommentController } from "./controllers/comment.controller";
 import { queryParser } from "express-query-parser";
+import { AttractionController } from "./controllers/attraction.controller";
 const app = express();
 app.use(cors()); // cors
 app.use(express.json()); // json body parser
@@ -29,6 +30,7 @@ app.use(
 //add middleware and router
 app.use("/api/auth", authController);
 app.use(BasicAuthMiddleware);
+app.use("/api/attraction", AttractionController);
 app.use("/api/user", UserController);
 app.use("/api/route", RouteController);
 app.use("/api/comment", CommentController);
